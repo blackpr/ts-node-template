@@ -6,7 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "npm run build -- --watch --preserveWatchOutput",
+    "start": "npm run build && node dist/index.js",
+    "dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/index.js\"",
+    "tsc:watch": "npm run build -- --watch --preserveWatchOutput",
     "lint": "eslint src --ext js,ts",
     "test": "jest"
   },
@@ -22,6 +24,7 @@
     "eslint": "^8.4.1",
     "jest": "^27.4.4",
     "prettier": "^2.5.1",
+    "tsc-watch": "^4.5.0",
     "typescript": "^4.5.3"
   },
   "engines": {
